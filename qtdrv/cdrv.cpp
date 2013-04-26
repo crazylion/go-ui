@@ -275,6 +275,7 @@ enum DRVID_WIDGET_ENUM {
     _ID_WIDGET_ONFOCUSINEVENT,
     _ID_WIDGET_ONFOCUSOUTEVENT,
     _ID_WIDGET_ONTIMEREVENT,
+    _ID_WIDGET_OPAQUEPAINTEVENT,
     _ID_WIDGET_LAST
 };
 // CLASSID_ACTION drvid enums
@@ -1535,6 +1536,10 @@ int drv_widget(int drvid, void *a0, void* a1, void* a2, void* a3, void* a4, void
     }
     case _ID_WIDGET_ONTIMEREVENT: {
         drvNewEvent(QEvent::Timer,a0,a1,a2);
+        break;
+    }
+    case _ID_WIDGET_OPAQUEPAINTEVENT: {
+        self->setAttribute(Qt::WA_OpaquePaintEvent,true);
         break;
     }
     default:
