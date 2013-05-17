@@ -276,6 +276,7 @@ enum DRVID_WIDGET_ENUM {
     _ID_WIDGET_ONFOCUSOUTEVENT,
     _ID_WIDGET_ONTIMEREVENT,
     _ID_WIDGET_OPAQUEPAINTEVENT,
+    _ID_WIDGET_SETMOUSETRACKING,
     _ID_WIDGET_LAST
 };
 // CLASSID_ACTION drvid enums
@@ -1542,6 +1543,11 @@ int drv_widget(int drvid, void *a0, void* a1, void* a2, void* a3, void* a4, void
         self->setAttribute(Qt::WA_OpaquePaintEvent,true);
         break;
     }
+    case _ID_WIDGET_SETMOUSETRACKING:{
+//          drvSetBool
+        self->setMouseTracking(true);
+                                     }
+                                      
     default:
         return 0;
     }

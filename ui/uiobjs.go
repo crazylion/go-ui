@@ -8,7 +8,6 @@ import (
 	"runtime"
 	"unsafe"
 	"image/color"
-    "fmt"
 )
 
 // drvclass enums
@@ -225,6 +224,7 @@ const (
 	_ID_WIDGET_ONFOCUSOUTEVENT
 	_ID_WIDGET_ONTIMEREVENT
     _ID_WIDGET_OPAQUEPAINTEVENT
+    _ID_WIDGET_SETMOUSETRACKING
 )
 // CLASSID_ACTION drvid enums
 const (
@@ -2406,8 +2406,11 @@ func (p *Widget) Size()(sz Size) {
 }
 
 func (p *Widget) SetOpAquepaintevent(b bool) {
-    fmt.Println("call")
     _drv_ch(CLASSID_WIDGET,_ID_WIDGET_OPAQUEPAINTEVENT,unsafe.Pointer(p.info()),unsafe.Pointer(&b),nil,nil,nil,nil,nil,nil,nil,nil)
+    return
+}
+func (p *Widget) SetMouseTracking(b bool) {
+    _drv_ch(CLASSID_WIDGET,_ID_WIDGET_SETMOUSETRACKING,unsafe.Pointer(p.info()),unsafe.Pointer(&b),nil,nil,nil,nil,nil,nil,nil,nil)
     return
 }
 
