@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/visualfc/go-ui/ui"
+	"github.com/crazylion/go-ui/ui"
 	"runtime"
 	"time"
 )
